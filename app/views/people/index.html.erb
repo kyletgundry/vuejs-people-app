@@ -1,4 +1,19 @@
 <h1>Interesting People App</h1>
+
 <div id="app">
-  {{ people }}
+<h1>Add a person:</h1>
+<div>
+  Name: <input type="text" v-model="newName">
+  Bio: <input type="text" v-model="newBio">
+  <button v-on:click="addPerson()">Add Person</button>
+</div>
+
+<h4>Total number of people: {{ people.length }}</h4>
+  <div v-for="person in people">
+    <h3 v-on:click="toggle(person)">Interesting Person: {{ person.name }}</h3>
+    <div v-if="person.bioVisible"> 
+      <p>{{ person.bio }}</p>
+    </div>
+    <button v-on:click="deletePerson(person)">Delete</button>
+  </div>
 </div>
